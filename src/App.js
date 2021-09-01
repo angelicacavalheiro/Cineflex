@@ -1,7 +1,7 @@
 
-import "./css/style.css";
 import "./css/reset.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Topo from "./Topo"
 import SelecionaFilme from "./SelecionaFilme";
 import SelecionaHorario from "./SelecionaHorario";
 import SelecionaAssento from "./SelecionaAssento";
@@ -11,21 +11,23 @@ import ExibePedido from "./ExibePedido";
 function App() {
   return (
     <BrowserRouter>
+      <Topo />
+
       <Switch>
 
-        <Route >
+        <Route path="/" exact>
           <SelecionaFilme />
         </ Route> 
 
-        <Route >
+        <Route path="/sessoes/:idFilme" exact>
           <SelecionaHorario />
         </ Route> 
 
-        <Route >
+        <Route path="/assentos/:idSessao" exact>
           <SelecionaAssento />
         </ Route> 
 
-        <Route >
+        <Route path="/sucesso" exact>
           <ExibePedido />
         </ Route> 
 
