@@ -1,4 +1,4 @@
-div {
+.topo {
   width: 100vw;
   height: 67px;
   background-color: #C3CFD9;
@@ -6,7 +6,7 @@ div {
   align-items: center; 
 }
 
-div p {
+.topo p {
   font-family: Roboto;
   font-size: 34px;
   line-height: 40px;

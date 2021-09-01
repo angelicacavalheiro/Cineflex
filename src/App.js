@@ -12,20 +12,22 @@ function App() {
   return (
     <BrowserRouter>
       <Topo />
+      <SelecionaAssento />
+      
 
       <Switch>
 
-        <Route path="/" exact>
+        {/* <Route path="/" exact>
           <SelecionaFilme />
-        </ Route> 
+        </ Route>  */}
 
-        <Route path="/sessoes/:idFilme" exact>
+        {/* <Route path="/sessoes/:idFilme" exact>
           <SelecionaHorario />
-        </ Route> 
+        </ Route>  */}
 
-        <Route path="/assentos/:idSessao" exact>
+        {/* <Route path="/assentos/:idSessao" exact>
           <SelecionaAssento />
-        </ Route> 
+        </ Route>  */}
 
         <Route path="/sucesso" exact>
           <ExibePedido />

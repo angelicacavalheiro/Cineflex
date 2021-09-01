@@ -1,0 +1,33 @@
+.titulo{
+    width: 100vw;
+    height: 110px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    
+}
+
+.titulo p{
+    font-family: Roboto;
+    font-size: 24px;
+    line-height: 28px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;   
+    letter-spacing: 0.04em;
+    color: #293845;  
+}
+
+.filmes {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fff;   
+}
+  
+.filmes img{
+    width: 129px;
+    height: 193px;
+    margin: 15px auto; 
+}

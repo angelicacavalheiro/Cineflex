@@ -1,0 +1,26 @@
+.data{
+    margin: 0 auto 23px 150px; 
+    font-family: Roboto;
+    font-size: 20px;
+    line-height: 23px;
+    display: flex;
+    flex-direction: column;    
+    letter-spacing: 0.02em;
+    color: #293845;
+} 
+
+.data button{
+   
+    width: 82px;
+    height: 43px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    background-color: #E8833A;
+    border-radius: 5px;
+    border-color: #E8833A;
+    margin-right: 8px;
+}
+
