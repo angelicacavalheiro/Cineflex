@@ -1,23 +1,29 @@
 import "./css/filme.css";
-import enola from "./assets/enola.png"
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export default function SelecionaFilme(){
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+      const promisse = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies");
+
+      promisse.then((res) => {       
+        setImages(res.data)
+      });
+    }, []);
+
     return(
         <>
             <div className="titulo">
                 <p> Selecione o filme </p>           
             </div>
-            <div className="filmes">
-                <img src={enola}/>
-                <img src={enola}/>
-                <img src={enola}/>
-                <img src={enola}/>
-                <img src={enola}/>
-                <img src={enola}/>
-                <img src={enola}/>
-                <img src={enola}/>
+            <div className="filmes"> 
+                {images.map((image) => (<img src={image.posterURL} alt={image.title} />))}
             </div>
         </>
 
     )
 }
+
