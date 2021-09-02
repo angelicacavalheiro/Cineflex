@@ -1,13 +1,17 @@
 import "./css/horario.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Link, useParams } from "react-router-dom";
 
 export default function SelecionaHorario(){
 
-   
-      const promisse = axios.get("https://mock-api.bootcamp.respondeai.com.br/api/v2/cineflex/movies/"+`${1}`+"/showtimes");
-      console.log(promisse)
+    const params = useParams();
 
+    const id = params.idFilme;
+    const [horarios, setHorarios] = useState([]);  
+
+    const promisse = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies/${id}/showtimes`);
+    
 
     return(
         <>

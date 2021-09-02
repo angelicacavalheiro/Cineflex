@@ -10,9 +10,9 @@ function App() {
   return (
     <BrowserRouter>
       <Topo />
-      <SelecionaHorario />
+      
 
-      {/* <Switch>
+      <Switch>
 
         <Route path="/" exact>
           <SelecionaFilme />
@@ -30,7 +30,7 @@ function App() {
           <ExibePedido />
         </ Route> 
 
-      </ Switch>        */}
+      </ Switch>       
     </ BrowserRouter>   
   );
 }
