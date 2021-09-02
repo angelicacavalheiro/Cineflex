@@ -1,0 +1,98 @@
+.assento{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+
+.disposicao {
+    width: 100vw;
+    height: 200px;
+    flex-wrap: wrap;
+    padding:  0 24px 0 24px;
+}
+
+.disposicao p{
+    margin: 5px;
+}
+.assento p{
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;        
+    padding: 6px 6px;      
+    font-family: Roboto;
+    font-size: 11px;
+    line-height: 13px;
+    letter-spacing: 0.04em;
+    color: #000000;
+}
+
+.disponivel{
+    background-color:#C3CFD9;
+    border: 1px solid #7B8B99;
+}
+
+.indisponivel{
+    background-color:#FBE192;
+    border: 1px solid #F7C52B;
+}
+
+.selecionado{
+    background-color: #8DD7CF;
+    border: 1px solid #1AAE9E;
+}
+
+.legenda{
+    display: flex;
+    justify-content: space-evenly;    
+    font-family: Roboto;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: -0.013em;
+    color: #4E5A65;
+}
+
+.legenda p{
+    margin: 15px auto;
+    text-align: center;    
+}
+
+.inputs {
+    padding:  0 24px 0 24px;    
+    margin-bottom: 60px;
+}
+
+.inputs div{   
+    width: 327px;
+    height: 25px;  
+    font-family: Roboto;  
+    font-size: 18px;
+    line-height: 21px;
+    color: #293845;
+}
+
+.inputs input{
+    width: 327px;
+    height: 51px;
+    background: #FFFFFF;
+    border: 1px solid #D5D5D5;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.botao{    
+    width: 225px;
+    height: 42px;
+    font-family: Roboto;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    background-color: #E8833A;
+    margin: 0 auto;
+    border-radius: 3px;
+    border: 1px solid #E8833A;
+    margin-bottom: 30px;
+}
