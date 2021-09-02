@@ -1,6 +1,25 @@
 import "./css/assentos.css";
+import Assento from "./Assento"
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function SelecionaAssentos(){
+
+    const params = useParams();
+    const id = params.idSessao;
+
+    const [assentos, setAssentos] = useState({});
+
+    useEffect(() => {
+      const promisse = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${id}/seats`);
+
+      promisse.then((res) => {       
+        setAssentos(res.data)
+      });
+    }, []);
+    console.log(assentos)
+
     return(
         <>
             <div className="titulo">
@@ -9,8 +28,17 @@ export default function SelecionaAssentos(){
 
             <div className="assentos">
                 <div className="assento disposicao">
-                    <p className="disponivel">01</p>
-                    <p className="indisponivel" >01</p>                    
+
+                    { (assentos.seats !== undefined) ? 
+                     assentos.seats.map((assento) => (
+                         <Assento assento={assento} />
+                        
+                   )) 
+                   :
+                   null                    
+                   }                  
+                     
+
                 </div>
             </div>
 

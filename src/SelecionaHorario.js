@@ -8,9 +8,19 @@ export default function SelecionaHorario(){
     const params = useParams();
 
     const id = params.idFilme;
-    const [horarios, setHorarios] = useState([]);  
+    const [sessoes, setSessoes] = useState([]);  
 
-    const promisse = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies/${id}/showtimes`);
+
+    useEffect(() => {
+
+        const promisse = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/movies/${id}/showtimes`);
+
+        promisse.then((res) => {       
+            setSessoes(res.data.days)
+        });
+        }, []); 
+
+        console.log(sessoes[0])
     
 
     return(
@@ -18,18 +28,23 @@ export default function SelecionaHorario(){
             <div className="titulo">
                 <p> Selecione o horário </p>           
             </div>
-            <div className="data">quinta 
-                <div className="horarios">
-                    <button>15h</button>
-                    <button>14h</button>
-                </div>
-            </div>
-            <div className="data">sexta
-                <div className="horarios">
-                    <button>16h</button>
-                    <button>17h</button>
-                </div>
-            </div>
+
+            
+            {sessoes.map((sessao) => (
+                <div className="data">{sessao.weekday} {sessao.date}
+                    <div className="horarios">
+                        {sessao.showtimes.map((horarios) => (
+                            <Link to={`/assentos/${horarios.id}`}>
+                                <button>{horarios.name}</button>  
+                            </Link>
+                                                           
+                        ))} 
+                    </div>
+                </div> 
+            ))}              
         </>
     )
+    
 }
+
+

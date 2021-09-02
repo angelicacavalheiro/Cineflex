@@ -15,6 +15,8 @@ export default function SelecionaFilme(){
       });
     }, []);
 
+    
+
     return(
         <>
             <div className="titulo">
