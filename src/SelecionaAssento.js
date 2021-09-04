@@ -26,12 +26,18 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
       });
     }, []);    
 
-    function adicionarDados() {
+    function adicionarInputEenviarDados() {
         setMovieInfos({...movieInfos,             
             Comprador: nomeComprador,
             CPF: CPFcomprador
             }
         )
+
+
+
+        //const promisse = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many",
+       //movieInfos.assentosID);
+
       }
          
     return(
@@ -91,7 +97,7 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
             </div>      
 
             <Link to={`/sucesso`} >
-                <button onClick={adicionarDados} className="botao">Reservar acessento(s)</button>   
+                <button onClick={adicionarInputEenviarDados} className="botao">Reservar acessento(s)</button>   
             </Link>                    
                             
         </>
