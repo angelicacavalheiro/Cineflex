@@ -20,15 +20,13 @@ export default function SelecionaHorario(){
         });
         }, []); 
 
-        console.log(sessoes[0])
-    
+   
 
     return(
         <>
             <div className="titulo">
                 <p> Selecione o horário </p>           
             </div>
-
             
             {sessoes.map((sessao) => (
                 <div className="data">{sessao.weekday} {sessao.date}
@@ -36,8 +34,7 @@ export default function SelecionaHorario(){
                         {sessao.showtimes.map((horarios) => (
                             <Link to={`/assentos/${horarios.id}`}>
                                 <button>{horarios.name}</button>  
-                            </Link>
-                                                           
+                            </Link>                                                           
                         ))} 
                     </div>
                 </div> 

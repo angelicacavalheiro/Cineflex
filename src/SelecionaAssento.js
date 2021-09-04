@@ -4,22 +4,36 @@ import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function SelecionaAssentos(){
+export default function SelecionaAssentos({movieInfos, setMovieInfos}){
 
     const params = useParams();
     const id = params.idSessao;
 
     const [assentos, setAssentos] = useState({});
+    const [nomeComprador, setNomeComprador] = useState()
+    const [CPFcomprador, setCPFcomprador] = useState()
+
 
     useEffect(() => {
       const promisse = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${id}/seats`);
 
       promisse.then((res) => {       
         setAssentos(res.data)
-      });
-    }, []);
-    console.log(assentos)
+        setMovieInfos({title: res.data.movie.title,
+        hora: res.data.name,
+        data: res.data.day.date})        
 
+      });
+    }, []);    
+
+    function adicionarDados() {
+        setMovieInfos({...movieInfos,             
+            Comprador: nomeComprador,
+            CPF: CPFcomprador
+            }
+        )
+      }
+         
     return(
         <>
             <div className="titulo">
@@ -31,14 +45,13 @@ export default function SelecionaAssentos(){
 
                     { (assentos.seats !== undefined) ? 
                      assentos.seats.map((assento) => (
-                         <Assento assento={assento} />
+                         <Assento assento={assento} movieInfos={movieInfos} setMovieInfos={setMovieInfos}/>
                         
                    )) 
                    :
                    null                    
-                   }                  
+                   }                 
                      
-
                 </div>
             </div>
 
@@ -59,13 +72,29 @@ export default function SelecionaAssentos(){
 
             <div className="inputs">
                 <div>Nome do comprador:</div>
-                <input type="text" name="input" value="Digite seu nome..." />
-                <div>CPF do comprador</div>
-                <input type="text" name="input" value="Digite seu CPF..." />
-            </div>   
+               
+                <input  
+                onChange={(e) => setNomeComprador(e.target.value)}
+                value={nomeComprador} 
+                type="text" 
+                name="input" 
+                placeholder="Digite seu nome..." />
 
-            <button className="botao">Reservar acessento(s)</button>    
-            
+                <div>CPF do comprador:</div>
+
+                <input onChange={(e) => setCPFcomprador(e.target.value)}
+                value={CPFcomprador} 
+                type="text" 
+                name="input" 
+                placeholder="Digite seu CPF..." />
+
+            </div>      
+
+            <Link to={`/sucesso`} >
+                <button onClick={adicionarDados} className="botao">Reservar acessento(s)</button>   
+            </Link>                    
+                            
         </>
     )
+    
 }

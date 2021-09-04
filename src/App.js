@@ -5,12 +5,15 @@ import SelecionaFilme from "./SelecionaFilme";
 import SelecionaHorario from "./SelecionaHorario";
 import SelecionaAssento from "./SelecionaAssento";
 import ExibePedido from "./ExibePedido";
+import { useState} from "react";
 
 function App() {
+
+  const [movieInfos, setMovieInfos] = useState({})
+
   return (
     <BrowserRouter>
-      <Topo />
-      
+      <Topo />      
 
       <Switch>
 
@@ -23,11 +26,11 @@ function App() {
         </ Route> 
 
         <Route path="/assentos/:idSessao" exact>
-          <SelecionaAssento />
+          <SelecionaAssento movieInfos={movieInfos} setMovieInfos={setMovieInfos}/>
         </ Route>  
 
          <Route path="/sucesso" exact>
-          <ExibePedido />
+          <ExibePedido movieInfos={movieInfos} setMovieInfos={setMovieInfos}/>
         </ Route> 
 
       </ Switch>       

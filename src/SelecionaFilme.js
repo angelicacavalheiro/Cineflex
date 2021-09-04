@@ -13,9 +13,7 @@ export default function SelecionaFilme(){
       promisse.then((res) => {       
         setImages(res.data)
       });
-    }, []);
-
-    
+    }, []);    
 
     return(
         <>
