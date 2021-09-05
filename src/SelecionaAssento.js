@@ -19,9 +19,12 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
 
       promisse.then((res) => {       
         setAssentos(res.data)
+        console.log(res.data)
         setMovieInfos({title: res.data.movie.title,
         hora: res.data.name,
-        data: res.data.day.date})        
+        dia: res.data.day.weekday,
+        data: res.data.day.date,
+        image: res.data.movie.posterURL})        
 
       });
     }, []);    
@@ -32,6 +35,8 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
             CPF: CPFcomprador
             }
         )
+
+        
 
 
 
@@ -96,9 +101,15 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
 
             </div>      
 
-            <Link to={`/sucesso`} >
-                <button onClick={adicionarInputEenviarDados} className="botao">Reservar acessento(s)</button>   
-            </Link>                    
+            <Link to={`/sucesso`} style={{textDecoration: 'none'}} >
+                <button onClick={adicionarInputEenviarDados} className="botao">Reservar assento(s)</button>   
+            </Link>   
+
+            <div className="rodapePage2">
+                <img src={movieInfos.image} />
+                <p>{movieInfos.dia} - </p>
+                <p>{movieInfos.hora}</p>
+            </div>                   
                             
         </>
     )

@@ -31,7 +31,7 @@ export default function ExibePedido({movieInfos, setMovieInfos}) {
                 <p>{movieInfos.CPF}</p>
             </div>
 
-            <Link to={`/`}>
+            <Link to={`/`} style={{textDecoration: 'none'}}>
                 <button className="botao voltar">Voltar para Home</button>
             </Link>
 

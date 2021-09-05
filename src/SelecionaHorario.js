@@ -9,6 +9,7 @@ export default function SelecionaHorario(){
 
     const id = params.idFilme;
     const [sessoes, setSessoes] = useState([]);  
+    const [rodape, setRodape] = useState([]);  
 
 
     useEffect(() => {
@@ -17,6 +18,7 @@ export default function SelecionaHorario(){
 
         promisse.then((res) => {       
             setSessoes(res.data.days)
+            setRodape(res.data)
         });
         }, []); 
 
@@ -34,11 +36,16 @@ export default function SelecionaHorario(){
                         {sessao.showtimes.map((horarios) => (
                             <Link to={`/assentos/${horarios.id}`}>
                                 <button>{horarios.name}</button>  
-                            </Link>                                                           
+                            </Link> 
+                                                                                  
                         ))} 
                     </div>
                 </div> 
-            ))}              
+            ))}    
+            <div className="rodapePage2">
+                <img src={rodape.posterURL} />
+                <p>{rodape.title}</p>
+            </div>     
         </>
     )
     

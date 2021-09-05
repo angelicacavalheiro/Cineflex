@@ -3,8 +3,7 @@
     height: 110px;
     background-color: #fff;
     display: flex;
-    align-items: center;
-    
+    align-items: center;    
 }
 
 .titulo p{
@@ -23,11 +22,30 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-    background-color: #fff;   
+    justify-content: space-evenly;
+    background-color: #fff;       
+}
+
+.rodapePage2{
+    display: flex;
+    height: 117px;
 }
   
-.filmes img{
-    width: 129px;
-    height: 193px;
-    margin: 15px auto; 
+.rodapePage2 img{
+    width: 48px;
+    height: 72px;
+    margin: 15px;      
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+}
+
+.rodapePage2 p{
+    height: 117px;
+    font-family: Roboto;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    color: #293845;
 }
