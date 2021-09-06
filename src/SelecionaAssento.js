@@ -117,8 +117,11 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
 
             <div className="rodapePage2">
                 <img src={movieInfos.image} />
-                <p>{movieInfos.dia} - </p>
-                <p>{movieInfos.hora}</p>
+                <div className="texto">
+                    <p>{movieInfos.title}</p>
+                    <p>{movieInfos.dia} - {movieInfos.hora} </p>
+                    
+                </div>
             </div>                   
                             
         </>

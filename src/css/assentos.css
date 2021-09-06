@@ -2,12 +2,10 @@
     margin-bottom: 117px;
 }
 
-
 .assento{
     display: flex;
     margin-bottom: 20px;
 }
-
 
 .disposicao {
     width: 100vw;
@@ -103,4 +101,9 @@
 
 }
 
-
+.texto{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    margin-top: 10px;
+}
