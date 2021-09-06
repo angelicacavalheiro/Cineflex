@@ -1,4 +1,4 @@
-import "./css/filme.css";
+import ".././css/filme.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

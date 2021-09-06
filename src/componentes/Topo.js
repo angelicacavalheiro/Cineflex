@@ -1,4 +1,4 @@
-import "./css/topo.css";
+import ".././css/topo.css";
 
 export default function Topo(){
     return(

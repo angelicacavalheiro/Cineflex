@@ -1,4 +1,4 @@
-import "./css/exibePedido.css";
+import ".././css/exibePedido.css";
 import { Link, useParams } from "react-router-dom";
 
 export default function ExibePedido({movieInfos, setMovieInfos}) {   

@@ -1,10 +1,10 @@
 import "./css/reset.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Topo from "./Topo"
-import SelecionaFilme from "./SelecionaFilme";
-import SelecionaHorario from "./SelecionaHorario";
-import SelecionaAssento from "./SelecionaAssento";
-import ExibePedido from "./ExibePedido";
+import Topo from "./componentes/Topo"
+import SelecionaFilme from "./componentes/SelecionaFilme";
+import SelecionaHorario from "./componentes/SelecionaHorario";
+import SelecionaAssento from "./componentes/SelecionaAssento";
+import ExibePedido from "./componentes/ExibePedido";
 import { useState} from "react";
 
 function App() {

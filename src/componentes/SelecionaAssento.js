@@ -1,4 +1,4 @@
-import "./css/assentos.css";
+import ".././css/assentos.css";
 import Assento from "./Assento"
 import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -12,7 +12,6 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
     const [assentos, setAssentos] = useState({});
     const [nomeComprador, setNomeComprador] = useState()
     const [CPFcomprador, setCPFcomprador] = useState()
-
 
     useEffect(() => {
       const promisse = axios.get(`https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/showtimes/${id}/seats`);
@@ -36,18 +35,12 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
             }
         )      
         
-        console.log(movieInfos)
-
-
         let send = {
             ids: movieInfos.assentosID,
             name: nomeComprador,
 	        cpf: CPFcomprador
         }
-        console.log(send)
         
-        
-
         const post = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many", send);
 
       }     
