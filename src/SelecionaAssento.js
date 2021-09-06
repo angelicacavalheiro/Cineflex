@@ -19,7 +19,6 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
 
       promisse.then((res) => {       
         setAssentos(res.data)
-        console.log(res.data)
         setMovieInfos({title: res.data.movie.title,
         hora: res.data.name,
         dia: res.data.day.weekday,
@@ -29,81 +28,92 @@ export default function SelecionaAssentos({movieInfos, setMovieInfos}){
       });
     }, []);    
 
-    function adicionarInputEenviarDados() {
+    function adicionarInputEenviarDados({CPFcomprador, nomeComprador, movieInfos, setMovieInfos}) {
+
         setMovieInfos({...movieInfos,             
             Comprador: nomeComprador,
             CPF: CPFcomprador
             }
-        )
+        )      
+        
+        console.log(movieInfos)
 
+
+        let send = {
+            ids: movieInfos.assentosID,
+            name: nomeComprador,
+	        cpf: CPFcomprador
+        }
+        console.log(send)
+        
         
 
+        const post = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many", send);
 
-
-        //const promisse = axios.post("https://mock-api.bootcamp.respondeai.com.br/api/v3/cineflex/seats/book-many",
-       //movieInfos.assentosID);
-
-      }
-         
+      }     
+  
     return(
         <>
             <div className="titulo">
                     <p> Selecione o(s) assento(s) </p>           
             </div>
 
-            <div className="assentos">
-                <div className="assento disposicao">
+            <div className="corpo">
+                <div className="assentos">
+                    <div className="assento disposicao">
 
-                    { (assentos.seats !== undefined) ? 
-                     assentos.seats.map((assento) => (
-                         <Assento assento={assento} movieInfos={movieInfos} setMovieInfos={setMovieInfos}/>
+                        { (assentos.seats !== undefined) ? 
+                        assentos.seats.map((assento) => (
+                            <Assento assento={assento} movieInfos={movieInfos} setMovieInfos={setMovieInfos}/>
+                            
+                    )) 
+                    :
+                    null                    
+                    }                 
                         
-                   )) 
-                   :
-                   null                    
-                   }                 
-                     
+                    </div>
                 </div>
+
+                <div className = "legenda assento">
+                    <div>
+                        <p className="selecionado" />
+                        Selecionado
+                    </div>
+                    <div>
+                        <p className="disponivel" />
+                        Disponivel                
+                    </div>
+                    <div>
+                        <p className="indisponivel" />
+                        Indisponivel               
+                    </div>
+                </div>
+
+                <div className="inputs">
+                    <div>Nome do comprador:</div>
+                
+                    <input  
+                    onChange={(e) => setNomeComprador(e.target.value)}
+                    value={nomeComprador} 
+                    type="text" 
+                    name="input" 
+                    placeholder="Digite seu nome..." />
+
+                    <div>CPF do comprador:</div>
+
+                    <input onChange={(e) => setCPFcomprador(e.target.value)}
+                    value={CPFcomprador} 
+                    type="text" 
+                    name="input" 
+                    placeholder="Digite seu CPF..." />
+
+                </div>      
+
+                <Link to={`/sucesso`} style={{textDecoration: 'none'}} >
+                    <button onClick= {() => adicionarInputEenviarDados({CPFcomprador, nomeComprador, movieInfos, setMovieInfos})}
+                    className="botao">Reservar assento(s)</button>   
+                </Link>   
             </div>
-
-            <div className = "legenda assento">
-                <div>
-                    <p className="selecionado" />
-                    Selecionado
-                </div>
-                <div>
-                    <p className="disponivel" />
-                    Disponivel                
-                </div>
-                <div>
-                    <p className="indisponivel" />
-                    Indisponivel               
-                </div>
-            </div>
-
-            <div className="inputs">
-                <div>Nome do comprador:</div>
-               
-                <input  
-                onChange={(e) => setNomeComprador(e.target.value)}
-                value={nomeComprador} 
-                type="text" 
-                name="input" 
-                placeholder="Digite seu nome..." />
-
-                <div>CPF do comprador:</div>
-
-                <input onChange={(e) => setCPFcomprador(e.target.value)}
-                value={CPFcomprador} 
-                type="text" 
-                name="input" 
-                placeholder="Digite seu CPF..." />
-
-            </div>      
-
-            <Link to={`/sucesso`} style={{textDecoration: 'none'}} >
-                <button onClick={adicionarInputEenviarDados} className="botao">Reservar assento(s)</button>   
-            </Link>   
 
             <div className="rodapePage2">
                 <img src={movieInfos.image} />

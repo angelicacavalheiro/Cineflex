@@ -30,22 +30,25 @@ export default function SelecionaHorario(){
                 <p> Selecione o horário </p>           
             </div>
             
-            {sessoes.map((sessao) => (
-                <div className="data">{sessao.weekday} {sessao.date}
-                    <div className="horarios">
-                        {sessao.showtimes.map((horarios) => (
-                            <Link to={`/assentos/${horarios.id}`}>
-                                <button>{horarios.name}</button>  
-                            </Link> 
-                                                                                  
-                        ))} 
-                    </div>
-                </div> 
-            ))}    
-            <div className="rodapePage2">
+            <div className= "datas">
+                {sessoes.map((sessao) => (
+                    <div className="data">{sessao.weekday} {sessao.date}
+                        <div className="horarios">
+                            {sessao.showtimes.map((horarios) => (
+                                <Link to={`/assentos/${horarios.id}`}>
+                                    <button>{horarios.name}</button>  
+                                </Link> 
+                                                                                    
+                            ))} 
+                        </div>
+                    </div> 
+                ))}   
+            </div>
+             
+            <footer className="rodapePage2">
                 <img src={rodape.posterURL} />
                 <p>{rodape.title}</p>
-            </div>     
+            </footer>     
         </>
     )
     

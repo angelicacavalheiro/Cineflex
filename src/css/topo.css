@@ -1,4 +1,6 @@
 .topo {
+  position: fixed;
+  top: 0;
   width: 100vw;
   height: 67px;
   background-color: #C3CFD9;
